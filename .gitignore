@@ -11,3 +11,6 @@ Thumbs.db
 # Build output
 dist/
 .cache/
+
+# Local verification artifacts
+preview*.png
