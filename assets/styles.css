@@ -497,6 +497,42 @@ em { font-style: normal; }
 .pillar h3 { font-size: 19px; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 9px; }
 .pillar p { color: var(--muted); font-size: 15px; }
 
+/* ---------- Platform modules (pipeline) ---------- */
+.modules__grid {
+  list-style: none; padding: 0;
+  position: relative;
+  display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px;
+}
+.module {
+  position: relative; z-index: 1;
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: var(--r-md); padding: 24px 22px 26px;
+  box-shadow: var(--shadow-sm);
+  transition: transform .4s var(--ease), box-shadow .4s var(--ease), border-color .4s;
+}
+.module:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: var(--line-2); }
+.module__idx {
+  font-family: var(--mono); font-size: 12px; font-weight: 500;
+  color: var(--accent); letter-spacing: .04em;
+}
+.module__icon {
+  display: grid; place-items: center;
+  width: 42px; height: 42px; border-radius: 12px; margin: 14px 0 16px;
+  background: var(--accent-wash); color: var(--accent);
+}
+.module h3 { font-size: 16.5px; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 8px; }
+.module p { font-size: 13.5px; color: var(--muted); line-height: 1.5; }
+/* flow arrow between modules */
+.module:not(:last-child)::after {
+  content: ""; position: absolute; z-index: 2;
+  right: -11px; top: 74px;
+  width: 7px; height: 7px;
+  border-top: 1.6px solid var(--faint); border-right: 1.6px solid var(--faint);
+  transform: rotate(45deg);
+  transition: border-color .35s, transform .35s var(--ease);
+}
+.module:not(:last-child):hover::after { border-color: var(--accent); }
+
 /* ---------- Feature rows ---------- */
 .feature-row {
   display: grid; grid-template-columns: 1fr 1fr;
@@ -719,6 +755,8 @@ em { font-style: normal; }
   .hero__demo { max-width: 560px; }
   .window { transform: none; }
   .pillars, .sec-grid { grid-template-columns: 1fr 1fr; }
+  .modules__grid { grid-template-columns: repeat(2, 1fr); }
+  .module:not(:last-child)::after { display: none; }
   .steps { grid-template-columns: 1fr; }
   .step:not(:last-child) { border-right: none; border-bottom: 1px solid var(--line); }
   .stats__grid { grid-template-columns: 1fr 1fr; gap: 36px 20px; }
@@ -731,6 +769,7 @@ em { font-style: normal; }
   .feature-row { grid-template-columns: 1fr; }
   .feature-row--reverse .feature-row__copy { order: 0; }
   .pillars, .sec-grid { grid-template-columns: 1fr; }
+  .modules__grid { grid-template-columns: 1fr; }
   .int-grid { grid-template-columns: repeat(3, 1fr); }
   .nav__actions .link-muted { display: none; }
   .hero__title { font-size: clamp(2.5rem, 11vw, 3.2rem); }
