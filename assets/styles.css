@@ -697,7 +697,24 @@ em { font-style: normal; }
    ============================================================ */
 @media (max-width: 960px) {
   .nav__links { display: none; }
+  .nav__links.is-open {
+    display: flex; flex-direction: column; gap: 0;
+    position: absolute; top: calc(100% + 1px); left: 0; right: 0; transform: none;
+    background: rgba(251, 250, 248, 0.96);
+    backdrop-filter: saturate(180%) blur(16px);
+    -webkit-backdrop-filter: saturate(180%) blur(16px);
+    border-bottom: 1px solid var(--line);
+    padding: 8px var(--gutter) 18px;
+    box-shadow: var(--shadow-md);
+  }
+  .nav__links.is-open a {
+    color: var(--ink); font-size: 16px; padding: 13px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .nav__links.is-open a::after { display: none; }
   .nav__toggle { display: flex; }
+  .nav__toggle[aria-expanded="true"] span:first-child { transform: translateY(3.4px) rotate(45deg); }
+  .nav__toggle[aria-expanded="true"] span:last-child { transform: translateY(-3.4px) rotate(-45deg); }
   .hero__inner { grid-template-columns: 1fr; }
   .hero__demo { max-width: 560px; }
   .window { transform: none; }
