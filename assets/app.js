@@ -125,4 +125,44 @@
       tab.classList.add("is-active");
     });
   });
+
+  /* ---------- Book-a-demo form → email (no backend) ---------- */
+  const demoForm = document.getElementById("demo-form");
+  if (demoForm) {
+    const note = document.getElementById("demo-form-note");
+    demoForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const data = new FormData(demoForm);
+      const val = (k) => (data.get(k) || "").toString().trim();
+      const name = val("name");
+      const email = val("email");
+
+      if (!name || !email) {
+        if (note) {
+          note.hidden = false;
+          note.textContent = "Please add your name and email so we can reach you.";
+        }
+        return;
+      }
+
+      const company = val("company");
+      const phone = val("phone");
+      const message = val("message");
+      const subject = `Demo request${company ? " — " + company : ""}`;
+      const body =
+        `Name: ${name}\n` +
+        `Company: ${company}\n` +
+        `Email: ${email}\n` +
+        `Phone: ${phone}\n\n` +
+        `${message}`;
+
+      window.location.href =
+        `mailto:admin@asksql.ai?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+      if (note) {
+        note.hidden = false;
+        note.textContent = "Opening your email app… if nothing happens, write us at admin@asksql.ai.";
+      }
+    });
+  }
 })();
