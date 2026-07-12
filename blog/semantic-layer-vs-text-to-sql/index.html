@@ -82,19 +82,19 @@
 
           <p>In today’s world, there are three main approaches to querying data. Each is a different bet on how you remove the translator, and each is genuinely well suited to a different kind of company. Which one best fits yours?</p>
 
-          <h2>Approach one: model the entire enterprise as one system</h2>
+          <h2>Approach one — Palantir's ontology: model the entire enterprise as one system</h2>
 
           <p>This is the Palantir model, and it is genuinely impressive. Instead of tables and columns, you build a digital twin of your business: every object, every relationship, and every action, stitched across all your systems and documents into a single shared picture of how the company actually works. It’s less a way to query your data than an operating system for running the business on top of it, and AI reasons and acts over that model instead of just answering questions about it.</p>
 
           <p>For a global enterprise with hundreds of systems accumulated through decades of mergers, or a defense agency coordinating across many commands, this makes sense — the data integration, the careful modeling, and the platform team that keeps the digital twin healthy. These are companies with the scale, the budget, and the mandate to do it properly. For a high-growth company that mostly wants any employee to ask questions about its data, it’s a lot of upfront resources and time investment.</p>
 
-          <h2>Approach two: predefine your metrics up front</h2>
+          <h2>Approach two — KPI semantic layers: Snowflake, Databricks, dbt</h2>
 
-          <p>This is where much of the modern BI world lives: Snowflake, Databricks, BigQuery, Tableau. Humans define the metrics up front — net profit, return rate, on-time delivery — each pinned to an exact formula. When someone asks a question, the model’s only job is to pick the right metric; the calculation behind it was decided in advance, not improvised on the spot. The result is beautiful in its reliability: on anything you’ve defined, you get near-zero hallucination, and when a question falls outside the model, it tells you so instead of guessing.</p>
+          <p>This is where much of the modern BI world lives: Snowflake, Databricks, dbt, BigQuery, Tableau. Humans define the metrics up front — net profit, return rate, on-time delivery — each pinned to an exact formula. When someone asks a question, the model’s only job is to pick the right metric; the calculation behind it was decided in advance, not improvised on the spot. The result is beautiful in its reliability: on anything you’ve defined, you get near-zero hallucination, and when a question falls outside the model, it tells you so instead of guessing.</p>
 
           <p>While the upfront modeling buys certainty, the tradeoff is coverage. It answers what’s been modeled, so a brand-new question waits on a modeler, and “ask anything” gradually becomes a modeling program you have to keep feeding.</p>
 
-          <h2>Approach three: define the meaning, not the answers</h2>
+          <h2>Approach three — direct text-to-SQL with a semantic model</h2>
 
           <p>This is the AskSQL.ai approach, and it’s built for the company in the middle: real data, real questions, but no platform team and no appetite for a six-month build. There’s no upfront ontology and no exhaustive metric project. The model generates the query from your question in real time, and the one thing it needs is your business meaning.</p>
 
