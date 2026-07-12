@@ -755,7 +755,7 @@ em { font-style: normal; }
 .article__body a:hover { border-color: var(--accent); }
 .article__body ul, .article__body ol { padding-left: 1.3em; }
 .article__body li + li { margin-top: .55em; }
-.article__body li::marker { color: var(--accent-soft); }
+.article__body li::marker { color: var(--ink); }
 .article__body blockquote {
   border-left: 2px solid var(--accent-soft);
   padding-left: 20px; color: var(--muted);
